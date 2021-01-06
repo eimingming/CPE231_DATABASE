@@ -1,0 +1,5 @@
+SELECT "Dname", COUNT (*)
+FROM "DEPARTMENT" D
+JOIN "EMPLOYEE" E ON D."Dnumber"=E."Dno"
+GROUP BY "Dname"
+HAVING AVG (E."Salary") > 30000

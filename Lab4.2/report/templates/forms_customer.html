@@ -1,0 +1,111 @@
+{% extends 'index.html' %}
+
+
+{% block content %}
+    
+    <button id='btnCustomerList'>Customer List</button>
+
+    <form id='form_customer' action='/customer/save' method=POST>
+        {% csrf_token %}
+        <table id='CustomerList' class="container">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Customer Code</th>
+                    <th>Customer Name</th>
+                    <th>Address</th>
+                    <th>Credit Limit</th>
+                    <th>Country</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for list in customers %}
+                    <tr>
+                        <td>{{ forloop.counter }}</td>
+                        <td>{{ list.customer_code }}</td>
+                        <td>{{ list.name }}</td>
+                        <td>{{ list.address }}</td>
+                        <td>{{ list.credit_list }}</td>
+                        <td>{{ list.country }}</td>
+                        <td></td>
+                    <tr>
+                {% endfor %}
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td id='btnAddCustomer'>+</td>
+                    <td><input type='text' id='customer_code' name='customer_code' /></td>
+                    <td><input type='text' id='customer_name' name='name' /></td>
+                    <td><input type='text' id='address' name='address' /></td>
+                    <td><input type='text' id='credit_limit' name='credit_limit' /></td>
+                    <td><input type='text' id='country' name='country' /></td>
+                    <td><input type='submit' value='Add'></td>
+                </tr>
+            </tfoot>
+        </table>
+    </form>    
+{% endblock %}
+
+{% block script %}
+<script>
+    $(document).ready( function () {
+        $('#btnCustomerList').click(function() {
+            console.log('btnCustomerList');
+            $.ajax({
+                url:  '/customer/list',
+                type:  'get',
+                dataType:  'json',
+                success: function  (data) {
+                    let rows =  '';
+                    var i = 1;
+                    data.customers.forEach(customer => {
+                        rows += `
+                        <tr>
+                            <td class='col-1'>${i++}</td>
+                            <td class='col-2'>${customer.customer_code}</td>
+                            <td class='col-3'>${customer.name}</td>
+                            <td class='col-3'>${customer.address}</td>
+                            <td class='col-3'>${customer.credit_limit}</td>
+                            <td class='col-3'>${customer.country}</td>
+                            <td class='hide'></td>
+                        </tr>`;
+                    });
+                    $('#CustomerList > tbody').html(rows);
+                },
+            });        
+        });
+
+        $('#btnAddCustomer').click(function() {
+            console.log('btnAddCustomer');
+            var token = $('[name=csrfmiddlewaretoken]').val();
+            $.ajax({
+                url:  '/customer/save2',
+                type:  'post',
+                data: $('#form_customer').serialize(),
+                headers: { "X-CSRFToken": token },
+                dataType:  'json',
+                success: function  (data) {
+                    let rows =  '';
+                    var i = 1;
+                    data.customers.forEach(customer => {
+                        rows += `
+                        <tr>
+                            <td class='col-1'>${i++}</td>
+                            <td class='col-2'>${customer.customer_code}</td>
+                            <td class='col-3'>${customer.name}</td>
+                            <td class='col-3'>${customer.address}</td>
+                            <td class='col-3'>${customer.credit_limit}</td>
+                            <td class='col-3'>${customer.country}</td>
+                            <td class='hide'></td>
+                        </tr>`;
+                    });
+                    $('#CustomerList > tbody').html(rows);
+                },
+            });   
+        });
+    });
+</script>
+{% endblock %}
+</body>
+</html>

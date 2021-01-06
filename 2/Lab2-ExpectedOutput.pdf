@@ -1,0 +1,61 @@
+Receipt create success.
+Receipt create success.
+Receipt create success.
+
+Receipt No, Date, Customer Code, Customer Name, Payment Method, Payment Reference, Remarks, Total Received, Receipt Line Item
+RCT1001/20, 2020-02-04, CP, CPALL, Cash, Nothing, Paid all invoices partially, 300, [{'Invoice No': 'INT100/20', 'Invoice Date': '2020-01-03', 'Amount Paid Here': 100}, {'Invoice No': 'INT101/20', 'Invoice Date': '2020-01-04', 'Amount Paid Here': 200}]
+RCT1002/20, 2020-02-05, Sam, Sam Co., Ltd., Credit Card, Master Card, Citibank, Partially paid on INT101/20, 10000, [{'Invoice No': 'INT100/20', 'Invoice Date': '2020-01-03', 'Amount Paid Here': 8560}, {'Invoice No': 'INT101/20', 'Invoice Date': '2020-01-04', 'Amount Paid Here': 1440}]
+RCT1003/20, 2020-02-06, CP, CPALL, Debit Card, Debit Card, This will later be deleted, 30, [{'Invoice No': 'INT100/20', 'Invoice Date': '2020-01-03', 'Amount Paid Here': 10}, {'Invoice No': 'INT101/20', 'Invoice Date': '2020-01-04', 'Amount Paid Here': 20}]
+Results of creating 3 receipts: RCT1001/20, RCT1002/20, and RCT1003/20 (Press a key to continue).
+{'Date': '2020-02-04', 'Customer Code': 'CP', 'Payment Method': 'Cash', 'Payment Reference': 'Nothing', 'Remarks': 'Paid all invoices partially', 'Receipt Line Item': [{'Invoice No': 'INT100/20', 'Amount Paid Here': 100}, {'Invoice No': 'INT101/20', 'Amount Paid Here': 200}], 'Total Received': 300}
+{'Date': '2020-02-06', 'Customer Code': 'CP', 'Payment Method': 'Debit Card', 'Payment Reference': 'Debit Card', 'Remarks': 'This will later be deleted', 'Receipt Line Item': [{'Invoice No': 'INT100/20', 'Amount Paid Here': 10}, {'Invoice No': 'INT101/20', 'Amount Paid Here': 20}], 'Total Received': 30}
+Receipt No 'RCT1005/20' not found. Cannot read.
+
+Receipt No, Date, Customer Code, Customer Name, Payment Method, Payment Reference, Remarks, Total Received, Receipt Line Item
+RCT1001/20, 2020-02-04, CP, CPALL, Cash, Nothing, Paid all invoices partially, 300, [{'Invoice No': 'INT100/20', 'Invoice Date': '2020-01-03', 'Amount Paid Here': 100}, {'Invoice No': 'INT101/20', 'Invoice Date': '2020-01-04', 'Amount Paid Here': 200}]
+RCT1002/20, 2020-02-05, Sam, Sam Co., Ltd., Credit Card, Master Card, Citibank, Partially paid on INT101/20, 10000, [{'Invoice No': 'INT100/20', 'Invoice Date': '2020-01-03', 'Amount Paid Here': 8560}, {'Invoice No': 'INT101/20', 'Invoice Date': '2020-01-04', 'Amount Paid Here': 1440}]
+RCT1003/20, 2020-02-06, CP, CPALL, Debit Card, Debit Card, This will later be deleted, 30, [{'Invoice No': 'INT100/20', 'Invoice Date': '2020-01-03', 'Amount Paid Here': 10}, {'Invoice No': 'INT101/20', 'Invoice Date': '2020-01-04', 'Amount Paid Here': 20}]
+Results of reading 3 receipts: RCT1001/20 (successfully), RCT1003/20 (successfully), and RCT1005/20 (unsuccessfully) (Press a key to continue).
+Receipt update success.
+Receipt No 'RCT1004/20' not found. Cannot update.
+
+Receipt No, Date, Customer Code, Customer Name, Payment Method, Payment Reference, Remarks, Total Received, Receipt Line Item
+RCT1001/20, 2020-02-04, CP, CPALL, Cash, Nothing, Paid all invoices partially, 300, [{'Invoice No': 'INT100/20', 'Invoice Date': '2020-01-03', 'Amount Paid Here': 100}, {'Invoice No': 'INT101/20', 'Invoice Date': '2020-01-04', 'Amount Paid Here': 200}]
+RCT1002/20, 2020-02-06, Sam, Sam Co., Ltd., Debit Card, VISA card, Partially paid on INT100/20 and INT101/20, 9400, [{'Invoice No': 'INT100/20', 'Invoice Date': '2020-01-03', 'Amount Paid Here': 8000}, {'Invoice No': 'INT101/20', 'Invoice Date': '2020-01-04', 'Amount Paid Here': 1400}]
+RCT1003/20, 2020-02-06, CP, CPALL, Debit Card, Debit Card, This will later be deleted, 30, [{'Invoice No': 'INT100/20', 'Invoice Date': '2020-01-03', 'Amount Paid Here': 10}, {'Invoice No': 'INT101/20', 'Invoice Date': '2020-01-04', 'Amount Paid Here': 20}]
+Results of updating 2 receipts: RCT1002/20 (successfully) and RCT1004/20 (unsuccessfully) (Press a key to continue).
+Receipt delete success.
+Receipt No 'RCT1005/20' not found. Cannot delete.
+
+Receipt No, Date, Customer Code, Customer Name, Payment Method, Payment Reference, Remarks, Total Received, Receipt Line Item
+RCT1001/20, 2020-02-04, CP, CPALL, Cash, Nothing, Paid all invoices partially, 300, [{'Invoice No': 'INT100/20', 'Invoice Date': '2020-01-03', 'Amount Paid Here': 100}, {'Invoice No': 'INT101/20', 'Invoice Date': '2020-01-04', 'Amount Paid Here': 200}]
+RCT1002/20, 2020-02-06, Sam, Sam Co., Ltd., Debit Card, VISA card, Partially paid on INT100/20 and INT101/20, 9400, [{'Invoice No': 'INT100/20', 'Invoice Date': '2020-01-03', 'Amount Paid Here': 8000}, {'Invoice No': 'INT101/20', 'Invoice Date': '2020-01-04', 'Amount Paid Here': 1400}]
+Results of deleting 2 receipts: RCT1003/20 (successfully) and RCT1005/20 (unsuccessfully) (Press a key to continue).
+
+Invoice No, Invoice Date, Customer Name, Invoice Amount Due, Invoice Amount Received, Invoice Amount Not Paid
+INT100/20, 2020-01-03, Sam Co., Ltd., 14980.0, 8100, 6880.0
+INT101/20, 2020-01-04, CPALL, 2140.0, 1600, 540.0
+Total Debt: 7420.0
+Report unpaid invoice 1 (Press a key to continue).
+Receipt line item update success.
+Receipt No 'RCT1005/20' not found. Cannot update.
+Invoice No 'INT103/20' not found in Receipt No 'RCT1001/20'. Cannot update.
+
+Receipt No, Date, Customer Code, Customer Name, Payment Method, Payment Reference, Remarks, Total Received, Receipt Line Item
+RCT1001/20, 2020-02-04, CP, CPALL, Cash, Nothing, Paid all invoices partially, 400, [{'Invoice No': 'INT100/20', 'Invoice Date': '2020-01-03', 'Amount Paid Here': 200}, {'Invoice No': 'INT101/20', 'Invoice Date': '2020-01-04', 'Amount Paid Here': 200}]
+RCT1002/20, 2020-02-06, Sam, Sam Co., Ltd., Debit Card, VISA card, Partially paid on INT100/20 and INT101/20, 9400, [{'Invoice No': 'INT100/20', 'Invoice Date': '2020-01-03', 'Amount Paid Here': 8000}, {'Invoice No': 'INT101/20', 'Invoice Date': '2020-01-04', 'Amount Paid Here': 1400}]
+Result of updating 3 receipt line, first successfully, others unsuccessfully (Press a key to continue).
+Receipt line item delete success.
+Receipt No 'RCT1003/20' not found. Cannot delete.
+Invoice No 'INT103/20' not found in Receipt No 'RCT1001/20'. Cannot delete.
+
+Receipt No, Date, Customer Code, Customer Name, Payment Method, Payment Reference, Remarks, Total Received, Receipt Line Item
+RCT1001/20, 2020-02-04, CP, CPALL, Cash, Nothing, Paid all invoices partially, 200, [{'Invoice No': 'INT100/20', 'Invoice Date': '2020-01-03', 'Amount Paid Here': 200}]    
+RCT1002/20, 2020-02-06, Sam, Sam Co., Ltd., Debit Card, VISA card, Partially paid on INT100/20 and INT101/20, 9400, [{'Invoice No': 'INT100/20', 'Invoice Date': '2020-01-03', 'Amount Paid Here': 8000}, {'Invoice No': 'INT101/20', 'Invoice Date': '2020-01-04', 'Amount Paid Here': 1400}]
+Result of deleting 3 receipt line, first successfully, others unsuccessfully (Press a key to continue).
+
+Invoice No, Invoice Date, Customer Name, Invoice Amount Due, Invoice Amount Received, Invoice Amount Not Paid
+INT100/20, 2020-01-03, Sam Co., Ltd., 14980.0, 8200, 6780.0
+INT101/20, 2020-01-04, CPALL, 2140.0, 1400, 740.0
+Total Debt: 7520.0
+Normal Termination.   Goodbye!

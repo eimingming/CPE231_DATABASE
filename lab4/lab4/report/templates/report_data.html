@@ -1,0 +1,66 @@
+{% extends 'index.html' %}
+
+{% block content %}
+    <h2>{{ default }}</h2>
+    
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-2">Invoice No :</div>
+            <div class="col-sm-4">{{ invoice.0.invoice_no }}</label></div>
+            <div class="col-sm-2">Date : </div>
+            <div class="col-sm-4">{{ invoice.0.date }}</div>
+        </div>
+        <div class="row">
+            <div class="col-sm-2">Customer Code :</div>
+            <div class="col-sm-4">{{ invoice.0.customer_code_id }}</div>
+            <div class="col-sm-2">Due Date : </div>
+            <div class="col-sm-4">{{ invoice.0.due_date }}</div>
+        </div>
+        <div class="row">
+            <div class="col-sm-2">Customer Name :</div>
+            <div class="col-sm-4">{{ invoice.0.customer_code__name }}</div>
+        </div>
+        <div class="row">
+            <div class="col-sm-2"></div>
+            <div class="col-sm-4"></div>
+            <div class="col-sm-2">Total :</div>
+            <div class="col-sm-4">{{ invoice.0.total }}</div>
+        </div>
+        <div class="row">
+            <div class="col-sm-2"></div>
+            <div class="col-sm-4"></div>
+            <div class="col-sm-2">VAT :</div>
+            <div class="col-sm-4">{{ invoice.0.vat }}</div>
+        </div>
+        <div class="row">
+            <div class="col-sm-2"></div>
+            <div class="col-sm-4"></div>
+            <div class="col-sm-2">Amount Due :</div>
+            <div class="col-sm-4">{{ invoice.0.amount_due }}</div>
+        </div>
+    </div>
+    <table class='table'>
+        <tr>
+            <th>#</th>
+            <th>Invoice No </th>
+            <th>Product Code </th>
+            <th>QTY </th>
+            <th>Unit Price </th>
+            <th>Extended Price </th>
+        </tr>
+    {% for lineitem in invoice_line_item %}
+        <tr>
+            <td>{{ forloop.counter }}</td>
+            <td>{{ lineitem.invoice_no_id }}</td>
+            <td>{{ lineitem.product_code_id }}</td>
+            <td>{{ lineitem.quantity }}</td>
+            <td>{{ lineitem.unit_price }}</td>
+            <td>{{ lineitem.extended_price }}</td>
+        <tr>
+    {% endfor %}
+    
+    {% endblock %}
+    
+
+</body>
+</html>

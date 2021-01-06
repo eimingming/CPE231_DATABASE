@@ -1,0 +1,46 @@
+{% extends 'report/base_report.html' %}
+
+{% block content %}
+    
+    <table class='table'>
+        <tr>
+            <th>#</th>
+            {% for name in column_name %}
+            <th>{{ name }} </th>
+            {% endfor %}
+        </tr>
+    {% for lineitem in data %}
+        <tr>
+            <td>{{ forloop.counter }}</td>
+            <td>{{ lineitem.invoice_no }}</td>
+            <td>{{ lineitem.invoice_date }}</td>
+            <td>{{ lineitem.customer_name }}</td>
+            <td>{{ lineitem.invoice_amount_due }}</td>
+            <td>{{ lineitem.invoice_amount_received }}</td>
+            <td>{{ lineitem.invoice_amount_not_paid }}</td>
+            <tr>
+                {% endfor %}
+                </table>
+                
+                {% for value in data2 %}
+                    <p>Number of Invoice Not paid : {{ value.number_of_invoices_not_paid }} </p>
+                    <p>Total Invoice Not Paid : {{ value.total_invoice_amount_not_paid }} </p>
+                {% endfor %}
+                </br>
+            
+            
+            {% endblock %}   
+
+</body>
+</html>
+
+    
+
+
+
+
+
+ 
+
+</body>
+</html>

@@ -1,0 +1,40 @@
+def report_list_all_receipt(receipt, invoices, customers):
+    allreceipt = receipt.dump()
+    # re-format result by add Customer Name in object and Product Name in line item
+    result = {}
+    for receiptNo, receiptDetail in allreceipt.items():
+        newValue = {}
+        for receiptColume, receiptData in receiptDetail.items():
+            if receiptColume == "Customer Code":
+                newValue[receiptColume] = receiptData
+                customer = customers.read(receiptDetail["Customer Code"])
+                if customer[0]['Is Error']:
+                    newValue["Customer Name"] = ""
+                else:
+                    newValue["Customer Name"] = customer[1]["Name"]
+
+            elif receiptColume == "Items List":
+                newLineItemList = []
+                for lineItem in receiptDetail['Items List']:
+                    newLineItem = {}
+                    for lineItemColume, lineItemData in lineItem.items():
+                        if lineItemColume == "Invoice No":
+                            newLineItem[lineItemColume] = lineItemData
+                            invoice = invoices.read(lineItem["Invoice No"]) #join
+
+                            if invoice[0]['Is Error']:
+                                newLineItem[1]["Invoice No"] = ""
+                                
+                            else:
+                                newLineItem[lineItemColume] = lineItemData
+                                
+                    newLineItemList.append (newLineItem)
+                newValue[receiptColume] = newLineItemList
+            else:
+                newValue[receiptColume] = receiptData
+        result[receiptNo] = newValue
+    #print(result)
+    print(" ")
+    #printForm(result)
+    printDictInCSVFormat(result, ('Receipt No',), ('Receipt Date', 'Customer Code','Payment Method','Payment Reference','Remark','ReceiptLineItemList'))
+    return result #send result for caller program to use

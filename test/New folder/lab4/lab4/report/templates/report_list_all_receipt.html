@@ -1,0 +1,33 @@
+{% extends 'index.html' %}
+
+{% block content %}
+    
+    <table class='table'>
+        <tr>
+            <th>#</th>
+            {% for name in column_name %}
+            <th>{{ name }} </th>
+            {% endfor %}
+        </tr>
+    {% for lineitem in data %}
+        <tr>
+            <td>{{ forloop.counter }}</td>
+            <td>{{ lineitem.receipt_no }}</td>
+            <td>{{ lineitem.receipt_date }}</td>
+            <td>{{ lineitem.customer_code }}</td>
+            <td>{{ lineitem.customer_name }}</td>
+            <td>{{ lineitem.payment_method }}</td>
+            <td>{{ lineitem.payment_reference }}</td>
+            <td>{{ lineitem.remark }}</td>
+            <td>{{ lineitem.total_receipt }}</td>
+            <td>{{ lineitem.invoice_no }}</td>
+            <td>{{ lineitem.invoice_date }}</td>
+            <td>{{ lineitem.invoice_amount_due }}</td>
+        <tr>
+    {% endfor %}
+    
+    {% endblock %}
+    
+
+</body>
+</html>

@@ -1,0 +1,23 @@
+<html>
+<head>
+    <title>Report Invoice</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script src='/static/cpe.js'></script>
+    <link rel='stylesheet' href='/static/cpe.css'>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" >
+    {% block script %}
+    {% endblock %}    
+</head>
+<body>
+    <H1>Report Invoice.</H1>
+    <ul class="nav">
+        <li><a href="ReportListAllInvoices">Report list all invoices</a></li>
+        <li><a href="ReportProductsSold">Report products sold</a></li>
+        <li><a href="ReportListAllProducts">Report list all products</a></li>
+    </ul>
+    {% block content %}
+    {% endblock %}
+</body>
+</html>

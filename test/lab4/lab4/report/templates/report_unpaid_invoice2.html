@@ -1,0 +1,31 @@
+{% extends 'index.html' %}
+
+{% block content %}
+    
+    <table class='table'>
+        <tr>
+            <th>#</th>
+            {% for name in column_name %}
+            <th>{{ name }} </th>
+            {% endfor %}
+        </tr>
+    {% for lineitem in data %}
+        <tr>
+            <td>{{ forloop.counter }}</td>
+            <td>{{ lineitem.number_of_invoices_not_paid }}</td>
+            <td>{{ lineitem.total_invoice_amount_not_paid }}</td>
+           
+        <tr>
+    {% endfor %}
+
+
+{% endblock %}
+
+
+
+    
+    
+    
+
+</body>
+</html>
